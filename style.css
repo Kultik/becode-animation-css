@@ -1,0 +1,100 @@
+/*
+.btn {
+    background: $cd-btn;
+    color: $cd-txt;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 1.85rem 3rem;
+    // box-sizing: content-box;
+    
+
+    // Animations come in strong here boi
+
+    border-radius: 10rem;
+    transform: scale(1); // scale stick to ()
+    transition-property: transform;
+    transition-duration: 300ms;
+
+    // Shortcut : transition : transform 400ms = same result as 2L above
+
+    &:hover {
+        transform: scale(1.20);
+    }
+}
+*/
+body {
+  background: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box {
+  font-weight: 900;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: white;
+  border: 4px solid white;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+}
+
+.box.box1:hover {
+  background: white;
+  color: black;
+}
+
+.box.box2:hover {
+  background: blue;
+  color: red;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.box.box3:hover {
+  background: green;
+  color: yellow;
+  -webkit-transform: translate(50px);
+          transform: translate(50px);
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 375px;
+  height: 550px;
+  background: white;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  border-radius: 1em;
+}
+/*# sourceMappingURL=style.css.map */

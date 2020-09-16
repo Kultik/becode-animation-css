@@ -26,8 +26,8 @@
 }
 */
 
-body {
-    background: black;
+section {
+    box-shadow:0px 0px 1px 1px grey;
 }
 
 * {
@@ -36,8 +36,13 @@ body {
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .wrapper {
     display: flex;
+    background: black;
     flex-direction: column;
     align-items: center;
 }
@@ -66,42 +71,167 @@ body {
     }
 }
 
-.card {
-    display: flex;
-    margin: 20px auto;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 375px; // coupled with Overflow hidden this enables a frame around the picture with W/H
-    height: 550px;
-    background: white;
-    transition: all 400ms;
-    border-radius: 1em;
-    &.card:hover {
-        transform: scale(1.7);
-        opacity: .7;
-    }
-    .card-img {
-    object-fit: contain;
-    
-    }
+$cd-txt: red;
 
-  
-    .date {
-        display:flex;
-        flex-direction: column;
-        text-align: center;
-        top:15px;
-        right: 15px;
-        position: absolute;
-        z-index: 10;
-        background: red;
-        border-radius: 50%;
-        padding: 1.2rem 1.5rem;
-        color: white;
-        font-size:1.5rem;
-        font-weight: 900;
-        word-wrap: break-word;
+.form {
+    text-align: center;
+    &_group {
+        & input {
+            border: 15px solid yellow;
+            border-radius: 100rem;
+            color:orange;
+            font-family: sans-serif;
+            font-size: 2rem;
+            outline: none;
+            padding: 1rem 1.5rem;
+            width: 50vw;
+            height: 2rem;
+            text-align: center;
+            transition: background-color 600ms;
+            &:focus {
+                border: 15px solid green;
+            }
+            // &:invalid {
+            //     background: darkorange;
+            //     border: 10px solid darkorange;
+            //     color: red;
+            // } THESE LINES NO LONGER NEEDED WITH WHAT FOLLOWS
+            &:not(:focus):invalid {
+                background: darkorange;
+                border: 15px solid darkorange;
+                color: red;
+            }
+        }
     }
 }
+
+.card { //previously, i had card-img here, and the text below did not appear on screeen "upcoming superpower" : meaning the dislay had to apply to the rest of the card. So one step behind and it revealed itself. Pretty amazing, huh. F***. 
+    // display: flex;
+    margin: 20px auto;
+    // flex-direction: column;
+    // align-items: center;
+    position: relative;
+    // overflow: hidden;
+    // transition: all 600ms;
+    width: 350px; // coupled with Overflow hidden this enables a frame around the picture with W/H
+    height: 460px;
+    background: white;
+    overflow: hidden;
+    // transform:scale(1);
+    border-radius: 1em;
+
+    // .card-img {
+    // object-fit: contain;
+    // }
+    .card-img { // having created the following commands in the card-img allowed the picture to let the text display properly. Otherwise the text overflowed on the image. 
+        position:relative;
+        width:100%;
+        height: 288px; //by manually playing with this frame value, i could make sure that the Photos frame stuck to the climbing text area
+        overflow: hidden;
+        transition: all 600ms ease-in-out;
+        // border-radius: 1em; //had to add here otherwise top borders of image wouldn't curve --> After adding overflow to this section, I could delete this line
+    }
+        .date {
+            display:flex;
+            flex-direction: column;
+            text-align: center;
+            top:15px;
+            right: 15px;
+            position: absolute;
+            z-index: 1;
+            background: rgb(214, 75, 41);
+            border-radius: 50%;
+            padding: 1.2rem 1.5rem;
+            color: white;
+            font-size:1.5rem;
+            font-weight: 900;
+        }
+
+    img {
+        background: #fff;
+        width: 100%; 
+        opacity: 1;
+        object-fit: contain; //whats the difference with cover ? here none since we have a frame ? 
+        transform: scale(1.2);
+        // transform-origin: center; // neither do i understand this 
+        transition: all 800ms ease-in-out;
+    }
+
+    .card-description {
+        text-align: left;
+        padding: 20px;
+        position: relative;
+
+        .title {
+            background:rgb(214, 75, 41);
+            padding: 10px 15px;
+            top: -35px;
+            // left: -20px; // -20 bc padding above is at 20px : value added because we have a relative position
+            left: 0;
+            
+            font-size: large;
+            font-weight: 900;
+            display: inline-block;
+            position: absolute;
+            // position: relative;
+
+            p {
+                margin: 0;
+                color: white;
+                opacity: 1;
+            }   
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1cm;
+        }
+        h4 {
+            color: rgb(198, 83, 70);
+            font-size: 1.2rem;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin: 0;
+            color: black;
+            opacity: 0;
+            transition: all 600ms ease-in-out;
+        }
+    }
+    .eind {
+        opacity: 0;
+        padding: 0 0 2rem 1rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        transition: all 600ms ease-in-out;
+    }
+}
+
+
+
+
+
+
+    .card:hover {
+        // box-shadow: 12px 12px 2px 1px yellow;
+
+        .card-img {
+            height: 250px;
+
+            img {
+                transform: scale(2.5);
+                opacity:.7;
+            }
+        }
+
+        .card-description {
+            p {
+                opacity: 1;
+            }
+        }
+        .eind {
+            opacity: 0.5;
+        }
+    }
